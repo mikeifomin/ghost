@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:8
 
 ENV NODE_ENV production
 
