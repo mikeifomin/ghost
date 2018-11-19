@@ -2,9 +2,10 @@ FROM node:8
 
 ENV NODE_ENV production
 
+
 ENV GHOST_CLI_VERSION 1.9.8
 #RUN npm install -g "ghost-cli@$GHOST_CLI_VERSION"
-RUN npm install -g git+https://git@github.com:mikeifomin/Ghost-CLI.git
+RUN npm install -g mikeifomin/Ghost-CLI
 
 ENV GHOST_INSTALL /var/lib/ghost
 ENV GHOST_CONTENT /var/lib/ghost/content
@@ -27,7 +28,7 @@ RUN set -ex; \
 	\
 # need to save initial content for pre-seeding empty volumes
 	mv "$GHOST_CONTENT" "$GHOST_INSTALL/content.orig"; \
-	mkdir -p "$GHOST_CONTENT"; \
+	mkdir -p "$GHOST_CONTENT"; 
 
 RUN set -eux; \
 # force install "sqlite3" manually since it's an optional dependency of "ghost"
